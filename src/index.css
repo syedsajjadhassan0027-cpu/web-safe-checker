@@ -3,46 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Security Scanner Design System */
+/* Professional Security Scanner Design System */
 @layer base {
   :root {
-    /* Base colors */
+    /* Base colors - Clean professional palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 27%;
 
     /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
 
-    /* Security brand colors */
-    --primary: 214 100% 40%; /* Deep security blue */
-    --primary-foreground: 0 0% 98%;
+    /* Professional blue brand colors */
+    --primary: 214 84% 56%; /* Professional security blue */
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220 8.9% 46.1%;
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Security status colors */
-    --success: 142 76% 36%; /* Safe green */
+    --success: 142 71% 45%; /* Safe green */
     --success-foreground: 0 0% 100%;
     
     --warning: 38 92% 50%; /* Warning amber */
     --warning-foreground: 0 0% 100%;
     
-    --destructive: 0 84.2% 60.2%; /* Threat red */
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 51%; /* Threat red */
+    --destructive-foreground: 0 0% 100%;
 
-    /* UI elements */
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* UI elements - Professional grays */
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 215 20% 95%;
+    --accent-foreground: 215 25% 27%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 214 100% 40%;
+    --border: 215 20% 89%;
+    --input: 215 20% 89%;
+    --ring: 214 84% 56%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Larger radius for modern look */
   }
 }
 
@@ -51,29 +51,33 @@
     @apply border-border;
   }
   body {
-    @apply bg-gradient-to-br from-slate-50 to-blue-50 text-foreground min-h-screen;
+    @apply bg-gradient-to-br from-blue-50/30 via-slate-50 to-blue-100/40 text-foreground min-h-screen font-medium;
   }
 }
 
-/* Security Scanner specific utilities */
+/* Professional Security Scanner Components */
 @layer components {
-  .security-card {
-    @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+  .security-main-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300;
   }
   
-  .status-badge-safe {
-    @apply bg-green-100 text-green-800 border-green-200;
+  .security-input {
+    @apply h-14 text-lg rounded-2xl border-2 border-border bg-background/50 backdrop-blur-sm focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-200;
   }
   
-  .status-badge-warning {
-    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  .security-button {
+    @apply h-14 px-8 text-lg font-semibold rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200;
   }
   
-  .status-badge-danger {
-    @apply bg-red-100 text-red-800 border-red-200;
+  .result-card-safe {
+    @apply bg-gradient-to-br from-success/10 to-success/5 border border-success/30 rounded-2xl shadow-lg;
   }
   
-  .scan-button {
-    @apply bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200;
+  .result-card-unsafe {
+    @apply bg-gradient-to-br from-destructive/10 to-destructive/5 border border-destructive/30 rounded-2xl shadow-lg;
+  }
+  
+  .fade-in {
+    @apply animate-in fade-in-0 slide-in-from-bottom-4 duration-500;
   }
 }

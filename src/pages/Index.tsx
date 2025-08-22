@@ -1,14 +1,8 @@
 
-import SecurityScanner from '@/components/SecurityScanner';
+import WebsiteSecurityChecker from '@/components/WebsiteSecurityChecker';
 
 const Index = () => {
-  return (
-    <div className="min-h-screen py-8 px-4">
-      <div className="container mx-auto">
-        <SecurityScanner />
-      </div>
-    </div>
-  );
+  return <WebsiteSecurityChecker />;
 };
 
 export default Index;
