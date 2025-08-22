@@ -39,7 +39,7 @@ const SecurityScanner = () => {
     }
   };
 
-  const checkSafeBrowsing = async (domain: string) => {
+  const checkSafeBrowsing = async (domain: string): Promise<{ status: 'safe' | 'unsafe' | 'unknown'; details: string; }> => {
     // Simulating API call - in real implementation, this would go through a backend
     // to avoid CORS and API key exposure
     console.log('Checking Safe Browsing for:', domain);
@@ -52,7 +52,7 @@ const SecurityScanner = () => {
     const isSafe = mockSafeResults.some(safe => domain.includes(safe)) || Math.random() > 0.3;
     
     return {
-      status: isSafe ? 'safe' : 'unsafe',
+      status: isSafe ? 'safe' as const : 'unsafe' as const,
       details: isSafe ? 'No threats detected' : 'Potential security threats found'
     };
   };
